@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Daily Status Report</title>
+	<!--  Angular CSS -->
+	<!-- <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../components/bootstrap/dist/css/bootstrap-theme.min.css"> -->
+	
+	
+	<!-- Bootstrap Core CSS -->
+    <link href="../components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="../components/bootstrap/dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../components/angular/ng-table.css">
+    <!-- MetisMenu CSS -->
+    <link href="../components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app="dashboardApp">
+	 <div id="wrapper">
+	 	<!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">SQM - Dashboard</a>
+            </div>
+            <!-- /.navbar-header -->
+	 		<ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                     <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Email</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Messages</a>
+                        </li>
+                       
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+	 
+	 		<div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        
+                        <li>
+                            <a href="index.html"><i class="glyphicon glyphicon-book"></i> Reports</a> 
+                             <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Release</a>
+                                </li>
+								<li>
+                                    <a href="#">JIRA</a>
+                                </li>
+                                    <li>
+                                    <a href="#">My Jira</a>
+                                </li>
+								<li>
+                                    <a href="#">Defects</a>
+                                </li>
+                                <li>
+                                    <a href="dailyStatus.html">Daily Status Report</a>
+                                </li>
+								<li>
+                                    <a href="#">Reporting & Metrics</a>
+                                </li>
+                            
+                                
+                            </ul>
+                            
+                        </li>
+                        
+                        <li>
+                            <a href="index.html"><i class="glyphicon glyphicon-sunglasses"></i> Attendees</a> 
+                            
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Admin List</a>
+                                </li>
+								<li>
+                                    <a href="#">User List</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <!-- /.dropdown-messages -->
+                         <li>
+                            <a href="index.html"><i class="glyphicon glyphicon-screenshot"></i> Customize</a> 
+                        </li>
+                     
+                    <li>
+                            <a href="signup.html"><i class="fa fa-edit fa-fw"></i> Logout</a>
+                        </li>
+                
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Daily Status Report</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            
+            <div >
+            
+<style>
+table, td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd)	{
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+</style>  
+<div ng-controller="dailystatuscontroller">
+<div id="top">
+
+<div class="tcsGrid" style="width: 50%; float: left;">
+    <br> <br><br>
+           <table class=table>
+ <thead>
+  <tr>
+     <th>Status</th>
+     <th>Count</th>
+     <th>Percentage</th>
+  </tr>
+ </thead>
+ 
+ <tbody>
+  <tr ng-repeat="user in tcstatus">
+     <td>{{user.status}}</td>
+     <td>{{user.count}}</td>
+     <td>{{user.percentage}}</td>
+  </tr>
+  <tr>
+     <td>{{user.status}}</td>
+     <td>{{user.count}}</td>
+     <td>{{user.percentage}}</td>
+  </tr>
+ </tbody>
+</table>
+</div>
+
+<div id="tcsChart" ng-init="plottcsChart()" style="float: right; width: 48%">
+</div>
+</div>
+<div id="middle">
+<div class="dsGrid" style="width: 100%;">
+    
+           <table class=table>
+ <thead>
+  <tr>
+     <th>Status/Severity</th>
+     <th>1-Urgent</th>
+     <th>2-High</th>
+     <th>3-Medium</th>
+     <th>4-Low</th>
+     <th>Total Defects</th>
+  </tr>
+ </thead>
+ 
+ <tbody>
+  <tr ng-repeat="user in names">
+     <td>{{user.statusSeverity}}</td>
+     <td>{{user.urgent}}</td>
+     <td>{{user.high}}</td>
+     <td>{{user.medium}}</td>
+     <td>{{user.low}}</td>
+     <td>{{user.total}}</td>
+  </tr>
+  <tr>
+     <td>{{user.statusSeverity}}</td>
+     <td>{{user.urgent}}</td>
+     <td>{{user.high}}</td>
+     <td>{{user.medium}}</td>
+     <td>{{user.low}}</td>
+     <td>{{user.total}}</td>
+  </tr>
+ </tbody>
+</table>
+</div>
+</div>
+<div id="bottom">
+<div id="statusWise" ng-init="plotstatusWiseChart()" style="float: left; height: 15%; width: 49%">
+
+
+</div>
+
+<div id="severityWise" ng-init="plotseverityWiseChart()" style="float: right; height: 50%; width: 50%">
+
+
+</div>
+
+        </div>
+	 </div>
+	 
+	  <!-- jQuery -->
+    <script src="../components/jquery/dist/jquery.min.js"></script>
+    
+    <!-- Highcharts -->
+    <script src="../js/highcharts.js"></script>
+    <script src="../js/exporting.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../components/metisMenu/dist/metisMenu.min.js"></script>
+    
+    <!-- AngularJS -->
+    <script src="../components/angular/angular.min.js"></script>
+    <script src="../components/angular/ng-table.js"></script>
+    <script src="../js/controllers/dailystatuscontroller.js"></script>
+    
+        
+        
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+	
+	
+</body>
+</html>
